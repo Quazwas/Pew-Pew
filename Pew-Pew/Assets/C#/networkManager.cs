@@ -3,13 +3,24 @@ using System.Collections;
 
 public class networkManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public GameObject player;
+	int conn = 32;
+	public void StartServer(int port, bool bNAT) {
+		Network.InitializeServer (conn,port,bNAT);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void JoinServer(string ip, int port) {
+		Network.Connect (ip,port);
+	}
+
+	void OnConnectedToServer() {
+		Debug.Log ("Connected");
+		spawnPlayer ();
+	}
+	void OnServerInitialized() {
+		Debug.Log ("Created");
+		spawnPlayer ();
+	}
+	void spawnPlayer() {
+		GameObject playerClone = Network.Instantiate (player, Vector3.zero,Quaternion.identity,0) as GameObject;
 	}
 }
