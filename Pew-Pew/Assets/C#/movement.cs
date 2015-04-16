@@ -17,11 +17,11 @@ public class movement : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+	public NetworkView netView;
 	// Update is called once per frame
 	void Update () {
 		//network.isMine
-		if(network.isMine) {
+		if(netView.isMine) {
 			move();
 		}
 	}
