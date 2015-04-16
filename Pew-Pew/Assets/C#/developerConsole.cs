@@ -18,7 +18,7 @@ public class developerConsole : MonoBehaviour {
 	string command="";
 	string ip="";
 	string port="2500";
-	bool bNAT=false;
+	bool bNAT=true;
 	void OnGUI() {
 		if (bDebug) {
 			GUI.Label(new Rect(10, 10, 100, 20), "Console:");
